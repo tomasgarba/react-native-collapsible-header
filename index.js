@@ -24,7 +24,7 @@ export default class Collapsible extends Component {
   scrollY = new Animated.Value(0);
   max = this.props.headerMaxHeight + this.props.headerMinHeight;
 
-  headerPosition = this.scroll.interpolate({
+  headerPosition = this.scrollY.interpolate({
     inputRange: [0, this.max],
     outputRange: [0, -this.max],
     extrapolate: 'clamp',
