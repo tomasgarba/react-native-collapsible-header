@@ -24,25 +24,24 @@ export default class Collapsible extends Component {
   scrollY = new Animated.Value(0);
   max = this.props.headerMaxHeight + this.props.headerMinHeight;
 
-  const headerPosition = this.scroll.interpolate({
+  headerPosition = this.scroll.interpolate({
     inputRange: [0, this.max],
     outputRange: [0, -this.max],
     extrapolate: 'clamp',
   });
 
-  const onScroll = Animated.event(
-    [{ nativeEvent: { contentOffset: { y: this.scrollY } } }],
-    { useNativeDriver: true },
-  );
-
-  const headerStyle = [
-    styles.header,
-    { height: this.max },
-    { transform: [{ translateY: headerPosition}] },
-  ];
-
   render() {
     const { backgroundColor, renderContent, renderHeader, ...scrollViewProps } = this.props;
+    const onScroll = Animated.event(
+      [{ nativeEvent: { contentOffset: { y: this.scrollY } } }],
+      { useNativeDriver: true },
+    );
+
+    const headerStyle = [
+      styles.header,
+      { height: this.max },
+      { transform: [{ translateY: this.headerPosition }] },
+    ];
 
     const contentStyle = [
       styles.content,
