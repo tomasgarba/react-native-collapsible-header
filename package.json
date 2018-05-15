@@ -6,9 +6,11 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tomasgarba/react-native-collapsible-header.git",
+    "url": "git+https://github.com/tomasgarba/react-native-collapsible-header.git"
   },
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "dependencies": {
     "prop-types": "^15.6.1"
   }
